@@ -78,7 +78,9 @@ using namespace std::literals::string_literals;
 static void dump_header_info(log_t* log) {
   auto fingerprint = GetProperty("ro.build.fingerprint", "unknown");
   auto revision = GetProperty("ro.revision", "unknown");
+  auto havoc_version = GetProperty("ro.havoc.version", "unknown");
 
+  _LOG(log, logtype::HEADER, "Havoc-OS Version: '%s'\n", havoc_version.c_str());
   _LOG(log, logtype::HEADER, "Build fingerprint: '%s'\n", fingerprint.c_str());
   _LOG(log, logtype::HEADER, "Revision: '%s'\n", revision.c_str());
   _LOG(log, logtype::HEADER, "ABI: '%s'\n", ABI_STRING);
